@@ -160,13 +160,20 @@ function App() {
       redirect: "follow" as RequestRedirect,
     };
 
-    fetch(
-      "https://aeroapi.flightaware.com/aeroapi/flights/search/count",
-      requestOptions
-    )
-      .then((response) => response.text())
+    // Use a proxy server to bypass CORS
+    const proxyUrl = "https://your-proxy-server.com"; // Replace with your proxy server URL
+    const apiUrl =
+      "https://aeroapi.flightaware.com/aeroapi/flights/search/count";
+
+    fetch(`${proxyUrl}/${apiUrl}`, requestOptions)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status} ${response.statusText}`);
+        }
+        return response.text();
+      })
       .then((result) => console.log(result))
-      .catch((error) => console.error(error));
+      .catch((error) => console.error("Error fetching flight data:", error));
   };
 
   fetchFlightData();
