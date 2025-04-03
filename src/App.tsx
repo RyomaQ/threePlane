@@ -151,21 +151,12 @@ function App() {
   }, []);
 
   const fetchFlightData = async () => {
-    const myHeaders = new Headers();
-    myHeaders.append("x-apikey", "VoLm55mkAHC8IhNaFLLmaGDjeG1HOkXt");
-
     const requestOptions = {
       method: "GET",
-      headers: myHeaders,
       redirect: "follow" as RequestRedirect,
     };
 
-    // Use a proxy server to bypass CORS
-    const proxyUrl = "https://your-proxy-server.com"; // Replace with your proxy server URL
-    const apiUrl =
-      "https://aeroapi.flightaware.com/aeroapi/flights/search/count";
-
-    fetch(`${proxyUrl}/${apiUrl}`, requestOptions)
+    fetch("/api/proxy", requestOptions) // Call the serverless function
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status} ${response.statusText}`);
