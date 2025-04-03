@@ -143,38 +143,42 @@ function App() {
     };
     window.addEventListener("resize", handleResize);
 
-    const fetchFlightData = async () => {
-      const apiKey = "VoLm55mkAHC8IhNaFLLmaGDjeG1HOkXt";
-      try {
-        const response = await fetch(
-          "https://aeroapi.flightaware.com/aeroapi/flights/search/count",
-          {
-            method: "GET",
-            headers: { "x-apikey": apiKey, "Content-Type": "application/json" },
-            mode: "no-cors",
-          }
-        );
-        if (response.status === 200) {
-          const data = await response.json();
-          console.log("Flight Data:", data);
-        } else {
-          console.error("Error fetching flight data:", response.statusText);
-        }
-      } catch (error) {
-        console.error("Error fetching flight data:", error);
-      }
-    };
-
-    fetchFlightData().then((data: any) => {
-      console.log("Flight data fetched successfully", data);
-    });
-
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("resize", handleResize);
       if (mountRef.current) mountRef.current.innerHTML = "";
     };
   }, []);
+
+  const fetchFlightData = async () => {
+    const apiKey = "VoLm55mkAHC8IhNaFLLmaGDjeG1HOkXt";
+    try {
+      const response = await fetch(
+        "https://aeroapi.flightaware.com/aeroapi/flights/search/count",
+        {
+          method: "GET",
+          headers: { "x-apikey": apiKey },
+          //mode: "no-cors",
+        }
+      );
+      if (response.status === 200) {
+        const data = await response.json();
+        console.log("Flight Data:", data);
+      } else {
+        console.error(
+          "Error fetching flight data:",
+          response.status,
+          response.statusText
+        );
+      }
+    } catch (error) {
+      console.error("Error fetching flight data:", error);
+    }
+  };
+
+  fetchFlightData().then((data: any) => {
+    console.log("Flight data fetched successfully", data);
+  });
 
   return (
     <div className="App">
