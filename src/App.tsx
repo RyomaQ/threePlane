@@ -163,7 +163,7 @@ function App() {
       );
       if (response.status === 200) {
         const data = await response.json();
-        console.log("Flight Data:", data);
+        console.log("Flight Dataa:", data);
       } else {
         console.error(
           "Error fetching flight data:",
