@@ -151,34 +151,25 @@ function App() {
   }, []);
 
   const fetchFlightData = async () => {
-    const apiKey = "VoLm55mkAHC8IhNaFLLmaGDjeG1HOkXt";
-    try {
-      const response = await fetch(
-        "https://aeroapi.flightaware.com/aeroapi/flights/search/count",
-        {
-          method: "GET",
-          headers: { "x-apikey": apiKey },
-          mode: "no-cors", // Added to bypass CORS
-        }
-      );
-      if (response.status === 200) {
-        const data = await response.json();
-        console.log("Flight Data:", data);
-      } else {
-        console.error(
-          "Error fetching flight data:",
-          response.status,
-          response.statusText
-        );
-      }
-    } catch (error) {
-      console.error("Error fetching flight data:", error);
-    }
+    const myHeaders = new Headers();
+    myHeaders.append("x-apikey", "VoLm55mkAHC8IhNaFLLmaGDjeG1HOkXt");
+
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow" as RequestRedirect,
+    };
+
+    fetch(
+      "https://aeroapi.flightaware.com/aeroapi/flights/search/count",
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.error(error));
   };
 
-  fetchFlightData().then((data: any) => {
-    console.log("Flight data fetched successfully", data);
-  });
+  fetchFlightData();
 
   return (
     <div className="App">
