@@ -158,7 +158,7 @@ function App() {
         {
           method: "GET",
           headers: { "x-apikey": apiKey },
-          //mode: "no-cors",
+          mode: "no-cors", // Added to bypass CORS
         }
       );
       if (response.status === 200) {
