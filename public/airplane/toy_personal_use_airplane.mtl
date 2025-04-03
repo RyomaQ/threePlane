@@ -1,0 +1,54 @@
+newmtl personal_use_airplane_Mat
+Ni 1.6
+Ka 0 0 0
+map_Ke toy_personal_use_airplane/personal_use_airplane_glow.png
+d 1
+Kd 0 0 0
+adobe_map_normal toy_personal_use_airplane/personal_use_airplane_normal.png
+map_d toy_personal_use_airplane/personal_use_airplane_opacity.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 0.0
+adobe_map_roughness toy_personal_use_airplane/personal_use_airplane_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 0.0
+map_Pm toy_personal_use_airplane/personal_use_airplane_metallic.png
+Ns 16
+map_Kd toy_personal_use_airplane/personal_use_airplane_baseColor.png
+newmtl glasses_Mat
+Ni 1.6
+Ka 0 0 0
+map_Ke toy_personal_use_airplane/glasses_glow.png
+d 1
+Kd 0 0 0
+adobe_map_normal toy_personal_use_airplane/glasses_normal.png
+map_d toy_personal_use_airplane/glasses_opacity.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_map_roughness toy_personal_use_airplane/glasses_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 0.0
+map_Pm toy_personal_use_airplane/glasses_metallic.png
+Ns 16
+adobe_map_translucence toy_personal_use_airplane/glasses_translucence.png
+map_Kd toy_personal_use_airplane/glasses_baseColor.png
+newmtl propeller_Mat
+Ni 1.6
+Ka 0 0 0
+map_Ke toy_personal_use_airplane/propeller_glow.png
+d 1
+Kd 0 0 0
+adobe_map_normal toy_personal_use_airplane/propeller_normal.png
+map_d toy_personal_use_airplane/propeller_opacity.png
+Tr 0
+illum 7
+Ks 1 1 1
+adobe_translucence 0.0
+adobe_map_roughness toy_personal_use_airplane/propeller_roughness.png
+adobe_interior_color 1.0 1.0 1.0
+adobe_density 0.0
+map_Pm toy_personal_use_airplane/propeller_metallic.png
+Ns 16
+map_Kd toy_personal_use_airplane/propeller_baseColor.png
